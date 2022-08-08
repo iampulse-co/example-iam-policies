@@ -1,0 +1,32 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "Permit reading bucket list at this path",
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": "arn:aws:iam::{{user-arn}}:user/{{user-name}}"
+      },
+        "Action": "s3:ListBucket",
+        "Resource": "arn:aws:s3:::{{bucket-name}}",
+        "Condition": {
+          "StringLike": {
+            "s3:prefix": "{{folder-name}}/*"
+          }
+        }
+      },
+      {
+        "Sid": "Permit read, delete, and write files in specific folder only",
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": "arn:aws:iam::{{user-arn}}:user/{{user-name}}"
+      },
+        "Resource": "arn:aws:s3:::{{bucket-name}}/{{folder-name}}/*",
+        "Action": [
+          "s3:GetObject",
+          "s3:DeleteObject",
+          "s3:PutObject"
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,21 @@
+{
+    "Version" : "2012-10-17",
+    "Id" : "Require secure access to bucket and all files",
+    "Statement" : [
+      {
+        "Sid" : "Require secure access to all files",
+        "Effect" : "Deny",
+        "Principal" : "*",
+        "Action" : "*",
+        "Resource" : [
+          "arn:aws:s3:::{{bucket-name}}",
+          "arn:aws:s3:::{{bucket-name}}/*"
+        ],
+        "Condition" : {
+          "Bool" : {
+            "aws:SecureTransport" : "false"
+          }
+        }
+      }
+    ]
+  }

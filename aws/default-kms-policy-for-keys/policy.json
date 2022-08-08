@@ -1,0 +1,15 @@
+{
+    "Version": "2012-10-17",
+    "Id": "Default KMS Policy",
+    "Statement": [
+      {
+        "Sid": "Enable IAM User Permissions",
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": "arn:aws:iam::{{accountId}}:root"
+        },
+        "Action": "kms:*",
+        "Resource": "*"
+      }
+    ]
+  }

@@ -1,0 +1,17 @@
+{
+    "Version": "2012-10-17",
+    "Id": "PermitOnlyIPRange",
+    "Statement": [
+      {
+        "Sid": "Deny not in this range",
+        "Effect": "Deny",
+        "Principal": "*",
+        "Action": "ecr:*",
+        "Condition": {
+          "NotIpAddress": {
+            "aws:SourceIp": "{{ip-range}}"
+          }
+        }
+      }
+    ]
+}

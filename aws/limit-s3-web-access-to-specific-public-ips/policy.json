@@ -1,0 +1,15 @@
+{
+    "Sid": "Permit web access only to IP",
+    "Effect": "Deny",
+    "Principal": "*",
+    "Action": "s3:*",
+    "Resource": [
+      "arn:aws:s3:::{{bucket-name}}",
+      "arn:aws:s3:::{{bucket-name}}/*"
+    ],
+    "Condition": {
+      "NotIpAddress": {
+        "aws:SourceIp": "{{user-ip}}"
+      }
+    }
+}

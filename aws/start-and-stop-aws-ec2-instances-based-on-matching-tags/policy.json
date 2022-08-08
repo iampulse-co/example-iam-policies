@@ -1,0 +1,13 @@
+{
+    "Version": "2012-10-17",
+    "Statement": {
+        "Effect": "Allow",
+        "Action": [
+            "ec2:startInstances",
+            "ec2:stopInstances"
+        ],
+        "Resource": "*",
+        "Condition": {"StringEquals": 
+            {"aws:ResourceTag/{{tagName}}":"${aws:PrincipalTag/{{tagName}}}"}}
+    }
+}

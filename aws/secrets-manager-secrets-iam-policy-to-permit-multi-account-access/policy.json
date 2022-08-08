@@ -1,0 +1,17 @@
+{
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Sid" : "Secrets Manager Secrets Cross Account Policy",
+        "Effect" : "Allow",
+        "Action" : "secretsmanager:GetSecretValue",
+        "Resource" : "*",
+        "Principal" : {
+          "AWS" : [
+            "arn:aws:iam::{{account-id1}}:role/{{role-name1}}",
+            "arn:aws:iam::{{account-id2}}:role/{{role-name2}}"
+           ]
+        }
+      }
+    ]
+}

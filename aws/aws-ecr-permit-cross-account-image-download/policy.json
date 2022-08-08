@@ -1,0 +1,20 @@
+{
+    "Version" : "2008-10-17",
+    "Statement" : [
+      {
+        "Sid" : "Allow account B, C to access this ECR",
+        "Effect" : "Allow",
+        "Principal" : {
+          "AWS" : [
+            "arn:aws:iam::{{remote-account-1-id}}:root",
+            "arn:aws:iam::{{remote-account-2-id}}:root"
+          ]
+        },
+        "Action" : [
+          "ecr:GetDownloadUrlForLayer",
+          "ecr:BatchGetImage",
+          "ecr:BatchCheckLayerAvailability"
+        ]
+      }
+    ]
+  }

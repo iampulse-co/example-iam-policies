@@ -1,0 +1,17 @@
+{
+    "Statement": [
+      {
+        "Sid": "DenyDecrypt",
+        "Effect": "Deny",
+        "Action": "kms:Decrypt",
+        "Resource": "*"
+      },
+      {
+        "Sid": "AllowEncrypt",
+        "Effect": "Allow",
+        "Action": "kms:Encrypt",
+        "Resource": "*"
+      }
+    ],
+    "Version": "2012-10-17"
+  }

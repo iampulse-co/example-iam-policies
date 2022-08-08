@@ -1,0 +1,30 @@
+{
+    "Version": "2012-10-17",
+    "Id": "KMS Key Policy",
+    "Statement": [
+      {
+        "Sid": "IAM Root User",
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": "arn:aws:iam::{{account-id}}:root"
+        },
+        "Action": "kms:*",
+        "Resource": "*"
+      },
+      {
+        "Sid" : "Cross Account Decryption",
+        "Effect" : "Allow",
+        "Action" : [
+          "kms:Decrypt",
+          "kms:DescribeKey"
+        ],
+         "Resource" : "*",
+         "Principal" : {
+           "AWS" : [
+             "arn:aws:iam::{{remote-account-id1}}:role/{{remote-role-name1}}",
+             "arn:aws:iam::{{remote-account-id2}}:role/{{remote-role-name2}}"
+           ]
+         }
+       }
+    ]
+  }

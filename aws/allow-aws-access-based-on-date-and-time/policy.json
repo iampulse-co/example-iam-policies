@@ -1,0 +1,14 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "{{servicePrefix}}:{{actionName}}",
+            "Resource": "*",
+            "Condition": {
+                "DateGreaterThan": {"aws:CurrentTime": "{{startDate}}"},
+                "DateLessThan": {"aws:CurrentTime": "{{endDate}}"}
+            }
+        }
+    ]
+}

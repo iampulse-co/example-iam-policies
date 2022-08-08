@@ -1,0 +1,13 @@
+{
+    "Version" : "2012-10-17",
+    "Id" : "Public Read Only",
+    "Statement" : [
+      {
+        "Sid" : "Permit public",  
+        "Effect" : "Allow",
+        "Principal" : "*",
+        "Action" : "s3:ListBucket",
+        "Resource" : "arn:aws:s3:::{{bucket-name}}"
+      }
+    ]
+  }
